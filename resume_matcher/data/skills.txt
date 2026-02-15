@@ -1,0 +1,26 @@
+python
+java
+c++
+sql
+machine learning
+deep learning
+data analysis
+data science
+nlp
+natural language processing
+tensorflow
+pytorch
+scikit-learn
+pandas
+numpy
+excel
+power bi
+tableau
+aws
+docker
+linux
+git
+problem solving
+communication
+teamwork
+
