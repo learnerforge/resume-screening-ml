@@ -8,37 +8,43 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Status-Live%20%26%20Working-brightgreen)
 
----
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-brightgreen)](https://resume-screening-ml-xnnbsouaxd4onthir8k27g.streamlit.app/)
 
-A **production-style Machine Learning + NLP application** that evaluates how well a candidate’s resume matches a given job description by generating a **relevance score, extracted skills, and matching insights**.
+---
 
-This project is **fully deployed**, interactive, and designed as a **high-impact ML portfolio project** for internships and entry-level ML roles.
+## 🔗 Live Demo
+
+👉 **Access the deployed application here:**  
+🌐 https://resume-screening-ml-xnnbsouaxd4onthir8k27g.streamlit.app/
+
+Upload a resume, provide a job description, and instantly receive a **matching score and extracted skills** — no setup required.
 
 ---
 
-## 🔗 Live Demo (Deployed)
+## 📌 Project Overview
 
-👉 **Try the application here:**  
-🌐 https://resume-screening-ml-xnnbsouaxd4onthir8k27g.streamlit.app/
+**Resume Matcher** is a **production-style Machine Learning + NLP application** that evaluates how well a candidate’s resume aligns with a given job description.
 
-> No setup required — upload a resume, add a job description, and get instant results.
+It is designed as a **real-world ATS (Applicant Tracking System) prototype**, showcasing:
+- Practical NLP techniques
+- Clean software architecture
+- End-to-end deployment
+
+This project is built specifically for **ML / AI internship portfolios** and technical evaluations.
 
 ---
 
 ## 🌟 Why This Project Matters
 
-Recruiters and hiring platforms process **hundreds of resumes per role**, making manual screening:
-- Time-consuming
-- Inconsistent
-- Error-prone
+Recruiters often deal with:
+- Hundreds of resumes per role
+- Limited time for manual screening
+- Subjective and inconsistent evaluation
 
-**Resume Matcher** automates the first screening layer by:
-- Objectively comparing resume content with job requirements
-- Highlighting skill relevance
-- Providing transparent, explainable similarity scores
-
-This mirrors the **core logic behind real-world ATS (Applicant Tracking Systems)**.
+This system automates the **first screening layer** by:
+- Objectively comparing resumes with job requirements
+- Highlighting relevant skills
+- Producing transparent and explainable similarity scores
 
 ---
 
@@ -46,26 +52,33 @@ This mirrors the **core logic behind real-world ATS (Applicant Tracking Systems)
 
 ✔ Resume ↔ Job Description similarity scoring  
 ✔ Supports **PDF and DOCX** resumes  
-✔ **Live deployed Streamlit web application**  
+✔ Fully **deployed Streamlit web application**  
 ✔ Dynamic **TF-IDF vectorization at runtime**  
-✔ Skill extraction using curated datasets  
-✔ Clean, responsive, recruiter-friendly UI  
+✔ Skill extraction using curated keyword datasets  
+✔ Clean, intuitive, recruiter-friendly UI  
 
 ---
 
 ## 🧠 Technical Approach
 
-### 🔹 NLP & ML Strategy
-- Resume and job description text is:
-  - Extracted from documents
-  - Cleaned and normalized
-  - Vectorized using **TF-IDF**
-- Similarity is computed using **Cosine Similarity**
+### 🔹 NLP & Machine Learning Strategy
+
+1. Resume and job description text is:
+   - Extracted from documents
+   - Cleaned and normalized
+   - Processed using **spaCy**
+
+2. Text is vectorized using **TF-IDF**
+
+3. Similarity is calculated using **Cosine Similarity**
 
 > ⚠️ No static or pre-trained model is stored.  
-> The TF-IDF vectorizer is **trained dynamically for each comparison**, ensuring flexibility and up-to-date relevance.
+> The TF-IDF vectorizer is **trained dynamically for each comparison**, ensuring flexibility and transparency.
+
+---
 
 ### 🔹 Why TF-IDF?
+
 - Lightweight and fast
 - Highly interpretable (important for ATS systems)
 - Strong baseline for text similarity problems
@@ -159,7 +172,7 @@ cd resume-screening-ml
 pip install -r resume_matcher/requirements.txt
 ```
 
-### 3️⃣ Run the App Locally
+### 3️⃣ Run the Application
 ```bash
 streamlit run resume_matcher/app.py
 ```
