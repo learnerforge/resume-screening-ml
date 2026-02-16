@@ -1,75 +1,91 @@
 # 🧠 Resume Matcher  
-![Python](https://img.shields.io/badge/Python-3.9+-blue)
-![ML](https://img.shields.io/badge/Machine%20Learning-NLP-green)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
-![License](https://img.shields.io/badge/License-MIT-yellow)
-
 ### Intelligent Resume ↔ Job Description Matching System
 
-A **high-quality Machine Learning + NLP application** that evaluates how well a candidate’s resume aligns with a given job description by generating a **relevance score, extracted skills, and matching insights**.
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-NLP-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-Deployed-red)
+![spaCy](https://img.shields.io/badge/spaCy-NLP-orange)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Live%20%26%20Working-brightgreen)
 
-Designed as a **portfolio-grade ML system**, this project demonstrates clean architecture, strong NLP fundamentals, and a production-style workflow suitable for **ML / AI internship evaluations**.
+---
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-brightgreen)](https://resume-screening-ml-xnnbsouaxd4onthir8k27g.streamlit.app/)
+
+A **production-style Machine Learning + NLP application** that evaluates how well a candidate’s resume matches a given job description by generating a **relevance score, extracted skills, and matching insights**.
+
+This project is **fully deployed**, interactive, and designed as a **high-impact ML portfolio project** for internships and entry-level ML roles.
+
+---
+
+## 🔗 Live Demo (Deployed)
+
+👉 **Try the application here:**  
+🌐 https://resume-screening-ml-xnnbsouaxd4onthir8k27g.streamlit.app/
+
+> No setup required — upload a resume, add a job description, and get instant results.
 
 ---
 
 ## 🌟 Why This Project Matters
 
-Recruiters and hiring systems process **hundreds of resumes per role**, making manual screening inefficient and inconsistent.
+Recruiters and hiring platforms process **hundreds of resumes per role**, making manual screening:
+- Time-consuming
+- Inconsistent
+- Error-prone
 
-**Resume Matcher** addresses this by:
-- Automating resume–JD relevance evaluation
-- Providing objective similarity scoring
-- Extracting job-relevant skills
-- Offering a clean and interactive UI
+**Resume Matcher** automates the first screening layer by:
+- Objectively comparing resume content with job requirements
+- Highlighting skill relevance
+- Providing transparent, explainable similarity scores
 
-This project mirrors the **core logic behind early-stage Applicant Tracking Systems (ATS)**.
+This mirrors the **core logic behind real-world ATS (Applicant Tracking Systems)**.
 
 ---
 
-## 🚀 Key Capabilities
+## 🚀 Key Features
 
 ✔ Resume ↔ Job Description similarity scoring  
 ✔ Supports **PDF and DOCX** resumes  
+✔ **Live deployed Streamlit web application**  
 ✔ Dynamic **TF-IDF vectorization at runtime**  
 ✔ Skill extraction using curated datasets  
-✔ Clean and intuitive **Streamlit UI**  
-✔ Modular, scalable project structure  
+✔ Clean, responsive, recruiter-friendly UI  
 
 ---
 
-## 🧠 Technical Overview
+## 🧠 Technical Approach
 
-### 🔹 NLP Strategy
+### 🔹 NLP & ML Strategy
 - Resume and job description text is:
-  - Extracted
-  - Cleaned & normalized
+  - Extracted from documents
+  - Cleaned and normalized
   - Vectorized using **TF-IDF**
 - Similarity is computed using **Cosine Similarity**
 
-> ⚠️ No pre-trained model is stored.  
-> The TF-IDF vectorizer is **trained dynamically for each comparison**, ensuring flexibility and transparency.
+> ⚠️ No static or pre-trained model is stored.  
+> The TF-IDF vectorizer is **trained dynamically for each comparison**, ensuring flexibility and up-to-date relevance.
 
 ### 🔹 Why TF-IDF?
 - Lightweight and fast
-- Interpretable and explainable
-- Strong baseline for text similarity
-- Commonly used in ATS prototypes
+- Highly interpretable (important for ATS systems)
+- Strong baseline for text similarity problems
+- Easy to deploy and scale
 
 ---
 
 ## 🖥️ Application Screenshots
 
 ### 🔹 Main Interface
-Minimal and focused UI for uploading resumes and entering job descriptions.
+Upload resumes and enter job descriptions through a clean, minimal UI.
 
-![Streamlit UI](screenshots/image1)
+![Main UI](screenshots/image1)
 
 ---
 
 ### 🔹 Matching Results & Skill Insights
-Displays the resume–JD match score along with extracted skills.
+Displays match score and extracted skills clearly and intuitively.
 
-![Matching Results](screenshots/image2)
+![Results View](screenshots/image2)
 
 ---
 
@@ -89,34 +105,34 @@ resume-screening-ml/
 │   │   └── __init__.py
 │   │
 │   ├── src/
-│   │   ├── extractor.py        # Resume text extraction (PDF/DOCX)
-│   │   ├── processor.py        # Text preprocessing pipeline
-│   │   ├── matcher.py          # TF-IDF similarity logic
+│   │   ├── extractor.py        # PDF & DOCX text extraction
+│   │   ├── processor.py        # Text preprocessing (spaCy)
+│   │   ├── matcher.py          # TF-IDF & similarity logic
 │   │   └── __init__.py
 │
 ├── screenshots/
-│   ├── image1                  # Streamlit UI screenshot
-│   └── image2                  # Matching results screenshot
+│   ├── image1                  # UI screenshot
+│   └── image2                  # Results screenshot
 │
 ├── test.py                     # Testing & experimentation
-└── venv/                       # Virtual environment (local)
+└── venv/                       # Local virtual environment
 ```
 
 ---
 
-## 🧩 Component Breakdown
+## 🧩 Module Breakdown
 
 ### 🔹 `app.py`
 - Streamlit-based frontend
-- Handles resume uploads and JD input
-- Displays scores and extracted skills
+- Handles resume uploads and job description input
+- Displays match scores and extracted skills
 
 ### 🔹 `extractor.py`
-- Extracts text from **PDF and DOCX** files
-- Handles document parsing logic
+- Extracts raw text from **PDF and DOCX** resumes
+- Handles document parsing and edge cases
 
 ### 🔹 `processor.py`
-- Cleans and normalizes text
+- Cleans and normalizes text using **spaCy**
 - Prepares data for vectorization
 
 ### 🔹 `matcher.py`
@@ -130,7 +146,7 @@ resume-screening-ml/
 
 ---
 
-## ⚙️ Installation & Execution
+## ⚙️ Local Installation & Execution
 
 ### 1️⃣ Clone the Repository
 ```bash
@@ -143,7 +159,7 @@ cd resume-screening-ml
 pip install -r resume_matcher/requirements.txt
 ```
 
-### 3️⃣ Run the Application
+### 3️⃣ Run the App Locally
 ```bash
 streamlit run resume_matcher/app.py
 ```
@@ -156,20 +172,20 @@ streamlit run resume_matcher/app.py
   Numerical similarity score between resume and job description
 
 - **Extracted Skills**  
-  Job-relevant skills identified from resume content
+  Relevant skills detected in the resume
 
 - **Explainability**  
-  Fully transparent — no black-box ML models
+  Fully transparent — no black-box predictions
 
 ---
 
-## 🎯 Intended Use Cases
+## 🎯 Use Cases
 
-- ML / AI internship portfolio
-- Resume screening system demo
+- Resume screening automation
+- ATS-style matching demo
 - NLP similarity engine
-- ATS proof-of-concept
-- Clean, explainable ML project
+- ML / AI internship portfolio
+- Deployed ML system showcase
 
 ---
 
@@ -178,7 +194,7 @@ streamlit run resume_matcher/app.py
 - Resume ranking against multiple job descriptions
 - Semantic similarity using BERT / Sentence Transformers
 - Resume improvement suggestions
-- Cloud deployment (Streamlit Cloud / AWS)
+- Cloud scaling and performance optimization
 - Multi-language resume support
 
 ---
@@ -194,7 +210,6 @@ GitHub: https://github.com/Gugilla-Aakash
 
 ## ⭐ Final Note
 
-If this project helped you understand real-world resume screening systems,  
-consider starring the repository — it genuinely helps.
+This project is **fully deployed, functional, and designed with real-world constraints in mind**.
 
-This project reflects **strong ML fundamentals, clean engineering, and practical design thinking**.
+If you find it useful or insightful, consider starring the repository — it genuinely helps.
