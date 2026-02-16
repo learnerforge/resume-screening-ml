@@ -1,4 +1,9 @@
 # 🧠 Resume Matcher  
+![Python](https://img.shields.io/badge/Python-3.9+-blue)
+![ML](https://img.shields.io/badge/Machine%20Learning-NLP-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 ### Intelligent Resume ↔ Job Description Matching System
 
 A **high-quality Machine Learning + NLP application** that evaluates how well a candidate’s resume aligns with a given job description by generating a **relevance score, extracted skills, and matching insights**.
