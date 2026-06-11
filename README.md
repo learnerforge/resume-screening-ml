@@ -1,198 +1,229 @@
-# 🧠 Resume Matcher  
-### Intelligent Resume ↔ Job Description Matching System
+# Resume Matcher
+### Intelligent Resume / Job Description Matching System
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-NLP-green)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Deployed-red)
 ![spaCy](https://img.shields.io/badge/spaCy-NLP-orange)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
-![Status](https://img.shields.io/badge/Status-Live%20%26%20Working-brightgreen)
-
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-brightgreen)](https://resume-screening-ml-xnnbsouaxd4onthir8k27g.streamlit.app/)
 
 ---
 
-## 🔗 Live Demo
+## System Architecture
 
-👉 **Access the deployed application here:**  
-🌐 https://resume-screening-ml-xnnbsouaxd4onthir8k27g.streamlit.app/
+```mermaid
+flowchart TD
+    User["User / Recruiter"] --> Upload["Upload Resume (PDF/DOCX)"]
+    User --> Paste["Paste Job Description"]
 
-Upload a resume, provide a job description, and instantly receive a **matching score and extracted skills** — no setup required.
+    Upload --> App["Streamlit UI (app.py)"]
+    Paste --> App
+
+    App --> Extractor["Extractor (extractor.py)\nExtracts raw text from PDF/DOCX"]
+    Extractor --> Processor["Processor (processor.py)\nspaCy: lowercase, lemmatize,\nremove stopwords & punctuation"]
+
+    Processor --> TextSimilarity["Text Similarity\nTF-IDF Vectorization +\nCosine Similarity"]
+    Processor --> SkillExtract["Skill Extraction\nMatch against skills.txt\n(word-level matching)"]
+
+    TextSimilarity --> Scorer["Weighted Scorer\nfinal = T * text_score + S * skill_score"]
+    SkillExtract --> Scorer
+
+    Scorer --> Result["Results Table\nFinal Score / Text Similarity /\nSkill Match / Matched Skills /\nMissing Skills"]
+
+    Result --> User
+```
 
 ---
 
-## 📌 Project Overview
+## Matching Pipeline
 
-**Resume Matcher** is a **production-style Machine Learning + NLP application** that evaluates how well a candidate’s resume aligns with a given job description.
+```mermaid
+flowchart LR
+    A["Resume Text"] --> B["spaCy Cleaning"]
+    C["Job Description Text"] --> B
 
-It is designed as a **real-world ATS (Applicant Tracking System) prototype**, showcasing:
+    B --> D["TF-IDF Vectorizer\n(fitted dynamically per pair)"]
+    D --> E["Cosine Similarity"]
+    E --> F["Text Similarity Score"]
+
+    B --> G["Load Skills\nfrom skills.txt"]
+    G --> H["Normalize Skills\n(clean_text on each skill)"]
+    H --> I["Word-Level Matching\n(single words: set lookup\nmulti-word: substring check)"]
+    I --> J["Skill Intersection\nresume_skills & job_skills"]
+    J --> K["Skill Match Score\n(|matched| / |job_skills|) * 100"]
+
+    F --> L["Final Score\n(text_weight * text_score +\nskill_weight * skill_score)"]
+    K --> L
+
+    L --> M["Output\nScore + Skills + Gaps"]
+```
+
+---
+
+## Project Overview
+
+**Resume Matcher** is a production-style Machine Learning + NLP application that evaluates how well a candidate's resume aligns with a given job description.
+
+It is designed as a real-world ATS (Applicant Tracking System) prototype, showcasing:
 - Practical NLP techniques
 - Clean software architecture
 - End-to-end deployment
 
-This project is built specifically for **ML / AI internship portfolios** and technical evaluations.
-
 ---
 
-## 🌟 Why This Project Matters
+## Why This Project Matters
 
 Recruiters often deal with:
 - Hundreds of resumes per role
 - Limited time for manual screening
 - Subjective and inconsistent evaluation
 
-This system automates the **first screening layer** by:
+This system automates the first screening layer by:
 - Objectively comparing resumes with job requirements
 - Highlighting relevant skills
 - Producing transparent and explainable similarity scores
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-✔ Resume ↔ Job Description similarity scoring  
-✔ Supports **PDF and DOCX** resumes  
-✔ Fully **deployed Streamlit web application**  
-✔ Dynamic **TF-IDF vectorization at runtime**  
-✔ Skill extraction using curated keyword datasets  
-✔ Clean, intuitive, recruiter-friendly UI  
+- Resume / Job Description similarity scoring
+- Supports PDF and DOCX resumes
+- Fully deployed Streamlit web application
+- Dynamic TF-IDF vectorization at runtime
+- Skill extraction using a curated dataset of 220+ skills
+- Weighted scoring (text similarity + skill match)
+- Per-resume error isolation (one failure does not block others)
 
 ---
 
-## 🧠 Technical Approach
+## Technical Approach
 
-### 🔹 NLP & Machine Learning Strategy
+### NLP & Machine Learning Strategy
 
 1. Resume and job description text is:
-   - Extracted from documents
-   - Cleaned and normalized
-   - Processed using **spaCy**
+   - Extracted from documents (pdfplumber / python-docx)
+   - Cleaned and normalized via spaCy (lowercasing, lemmatization, stop-word removal)
+2. Text is vectorized using TF-IDF
+3. Similarity is calculated using Cosine Similarity
+4. Skills are extracted via word-level matching against a curated keyword dataset
+5. Final score = weighted combination of text similarity and skill match
 
-2. Text is vectorized using **TF-IDF**
+No static or pre-trained model is stored. The TF-IDF vectorizer is trained dynamically for each comparison, ensuring flexibility and transparency.
 
-3. Similarity is calculated using **Cosine Similarity**
-
-> ⚠️ No static or pre-trained model is stored.  
-> The TF-IDF vectorizer is **trained dynamically for each comparison**, ensuring flexibility and transparency.
-
----
-
-### 🔹 Why TF-IDF?
+### Why TF-IDF?
 
 - Lightweight and fast
 - Highly interpretable (important for ATS systems)
-- Strong baseline for text similarity problems
+- Strong baseline for text similarity
 - Easy to deploy and scale
 
 ---
 
-## 🖥️ Application Screenshots
+## Application Screenshots
 
-### 🔹 Main Interface
+### Main Interface
 Upload resumes and enter job descriptions through a clean, minimal UI.
 
 ![Main UI](screenshots/image1)
 
----
-
-### 🔹 Matching Results & Skill Insights
+### Matching Results & Skill Insights
 Displays match score and extracted skills clearly and intuitively.
 
 ![Results View](screenshots/image2)
 
 ---
 
-## 🧱 Project Structure
-
-The repository follows a **clean separation of concerns** between UI, logic, and data.
+## Project Structure
 
 ```
 resume-screening-ml/
-│
-├── resume_matcher/
-│   ├── app.py                  # Streamlit UI entry point
-│   ├── requirements.txt        # Project dependencies
-│   │
-│   ├── data/
-│   │   ├── skills.txt          # Curated skills dataset
-│   │   └── __init__.py
-│   │
-│   ├── src/
-│   │   ├── extractor.py        # PDF & DOCX text extraction
-│   │   ├── processor.py        # Text preprocessing (spaCy)
-│   │   ├── matcher.py          # TF-IDF & similarity logic
-│   │   └── __init__.py
-│
-├── screenshots/
-│   ├── image1                  # UI screenshot
-│   └── image2                  # Results screenshot
-│
-├── test.py                     # Testing & experimentation
-└── venv/                       # Local virtual environment
+|
++-- requirements.txt             Project dependencies
+|
++-- resume_matcher/
+|   +-- app.py                  Streamlit UI entry point
+|   | 
+|   +-- data/
+|   |   +-- skills.txt          Curated skills dataset (220+ skills)
+|   |   +-- __init__.py
+|   | 
+|   +-- src/
+|       +-- extractor.py        PDF & DOCX text extraction
+|       +-- processor.py        Text preprocessing (spaCy) + skill extraction
+|       +-- matcher.py          TF-IDF, cosine similarity, weighted scoring
+|       +-- __init__.py
+|
++-- screenshots/
+|   +-- image1                  UI screenshot
+|   +-- image2                  Results screenshot
+|
++-- test.py                     Functional tests
 ```
 
 ---
 
-## 🧩 Module Breakdown
+## Module Breakdown
 
-### 🔹 `app.py`
+### `app.py`
 - Streamlit-based frontend
 - Handles resume uploads and job description input
-- Displays match scores and extracted skills
+- Displays ranked results with match scores, matched skills, and missing skills
+- Uses tempfile for secure temporary file handling
+- Isolates per-file errors so one failure does not crash the batch
 
-### 🔹 `extractor.py`
-- Extracts raw text from **PDF and DOCX** resumes
-- Handles document parsing and edge cases
+### `extractor.py`
+- Extracts raw text from PDF (pdfplumber) and DOCX (python-docx) resumes
+- Handles edge cases (empty files, unsupported formats)
 
-### 🔹 `processor.py`
-- Cleans and normalizes text using **spaCy**
-- Prepares data for vectorization
+### `processor.py`
+- Cleans and normalizes text using spaCy
+- Loads and matches skills from skills.txt
+- Uses word-level matching for single-word skills to eliminate false positives
 
-### 🔹 `matcher.py`
-- Builds TF-IDF vectors dynamically
-- Computes cosine similarity
-- Outputs relevance score
+### `matcher.py`
+- Builds TF-IDF vectors dynamically for each resume/JD pair
+- Computes cosine similarity for text matching
+- Computes skill intersection for skill gap analysis
+- Produces a weighted final score
 
-### 🔹 `skills.txt`
-- Keyword-based skills dataset
-- Used for skill extraction and highlighting
+### `skills.txt`
+- Keyword-based skills dataset with 220+ entries
+- Covers programming languages, frameworks, databases, cloud, DevOps, data science, ML/AI, soft skills, compliance, and more
 
 ---
 
-## ⚙️ Local Installation & Execution
+## Local Installation & Execution
 
-### 1️⃣ Clone the Repository
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/Gugilla-Aakash/resume-screening-ml.git
+git clone https://github.com/learnerforge/resume-screening-ml.git
 cd resume-screening-ml
 ```
 
-### 2️⃣ Install Dependencies
+### 2. Install Dependencies
 ```bash
-pip install -r resume_matcher/requirements.txt
+pip install -r requirements.txt
 ```
 
-### 3️⃣ Run the Application
+### 3. Run the Application
 ```bash
 streamlit run resume_matcher/app.py
 ```
 
 ---
 
-## 📊 Output Explanation
+## Output Explanation
 
-- **Match Score**  
-  Numerical similarity score between resume and job description
-
-- **Extracted Skills**  
-  Relevant skills detected in the resume
-
-- **Explainability**  
-  Fully transparent — no black-box predictions
+- **Final Score** -- Weighted combination of text similarity and skill match (configurable weights via sidebar slider)
+- **Text Similarity** -- Cosine similarity between TF-IDF vectors of resume and job description
+- **Skill Match** -- Percentage of required skills found in the resume
+- **Matched Skills** -- Skills present in both resume and job description
+- **Missing Skills** -- Skills required by the job but absent from the resume
 
 ---
 
-## 🎯 Use Cases
+## Use Cases
 
 - Resume screening automation
 - ATS-style matching demo
@@ -202,7 +233,7 @@ streamlit run resume_matcher/app.py
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - Resume ranking against multiple job descriptions
 - Semantic similarity using BERT / Sentence Transformers
@@ -212,17 +243,9 @@ streamlit run resume_matcher/app.py
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Gugilla Aakash**  
-Aspiring Machine Learning Engineer  
+Aspiring Machine Learning Engineer
 
 GitHub: https://github.com/Gugilla-Aakash
-
----
-
-## ⭐ Final Note
-
-This project is **fully deployed, functional, and designed with real-world constraints in mind**.
-
-If you find it useful or insightful, consider starring the repository — it genuinely helps.

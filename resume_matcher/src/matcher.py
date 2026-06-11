@@ -1,9 +1,7 @@
-# This is used to match the skills from resume to the required skills
-# importing dependencies
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-# For cleaning and extracting data of skills 
-from resume_matcher.src.processor import clean_text, extract_skills
+
+from .processor import clean_text, extract_skills
 
 # this is used to see the similarities between resume and required skill set
 def compute_text_similarity(resume_text: str, job_text: str) -> float:

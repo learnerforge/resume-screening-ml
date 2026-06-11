@@ -1,14 +1,14 @@
-# small test for resume sceening 
-
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from resume_matcher.src.extractor import extract_resume_text
 from resume_matcher.src.processor import clean_text, extract_skills
 from resume_matcher.src.matcher import match_resume_to_job
 
-
-BASE_DIR = Path(__file__).resolve().parent
-SKILL_FILE = BASE_DIR / "resume_matcher" / "data" / "skills.txt"
+PROJECT_ROOT = Path(__file__).resolve().parent
+SKILL_FILE = PROJECT_ROOT / "resume_matcher" / "data" / "skills.txt"
 
 
 def test_clean_text():
@@ -51,11 +51,11 @@ def test_matcher():
 
 
 if __name__ == "__main__":
-    print("🔍 Running Resume Matcher Tests...\n")
+    print("Running Resume Matcher Tests...\n")
 
     test_clean_text()
     test_skill_extraction()
     test_matcher()
 
-    print("\n✅ All tests completed successfully.")
+    print("\nAll tests completed successfully.")
 

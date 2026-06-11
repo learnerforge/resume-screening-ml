@@ -1,26 +1,226 @@
 python
 java
+javascript
+typescript
 c++
+rust
+golang
+swift
+kotlin
+ruby
+scala
+perl
+php
+matlab
+dart
+elixir
+clojure
+haskell
+lua
+assembly
+shell
+bash
+powershell
 sql
-machine learning
-deep learning
-data analysis
-data science
-nlp
-natural language processing
-tensorflow
+nosql
+html
+css
+sass
+less
+react
+react.js
+reactjs
+angular
+angular.js
+vue
+vue.js
+vuejs
+svelte
+next.js
+nextjs
+nuxt.js
+nuxtjs
+node.js
+nodejs
+express
+express.js
+django
+flask
+fastapi
+spring
+spring boot
+asp.net
+dotnet
+rails
+ruby on rails
+laravel
+symfony
+jquery
+bootstrap
+tailwind
+tailwind css
+redux
+graphql
+rest
+rest api
+grpc
+docker
+kubernetes
+aws
+amazon web services
+azure
+google cloud
+gcp
+terraform
+ansible
+jenkins
+ci
+cd
+git
+github
+gitlab
+bitbucket
+nginx
+apache
+linux
+unix
+windows server
+mysql
+postgresql
+postgres
+mongodb
+redis
+elasticsearch
+cassandra
+mariadb
+sqlite
+oracle
+sql server
+dynamodb
+firebase
+bigquery
+snowflake
+airflow
+kafka
+spark
+apache spark
+hadoop
+hive
+hbase
 pytorch
+tensorflow
+keras
 scikit-learn
 pandas
 numpy
-excel
-power bi
+scipy
+matplotlib
+seaborn
+plotly
+opencv
+nltk
+transformers
+hugging face
+langchain
+llm
+machine learning
+deep learning
+nlp
+natural language processing
+computer vision
+data science
+data analysis
+data engineering
+data pipeline
+etl
 tableau
-aws
-docker
-linux
-git
+power bi
+looker
+qlik
+excel
+google sheets
+saas
+paas
+iaas
+microservices
+soa
+restful
+api
+sdlc
+agile
+scrum
+kanban
+jira
+confluence
+postman
+swagger
+openapi
+pytest
+junit
+selenium
+cypress
+jest
+mocha
+chai
+webpack
+babel
+eslint
+prettier
+vscode
+intellij
+pycharm
+eclipse
+vim
 problem solving
+critical thinking
 communication
 teamwork
-
+leadership
+project management
+time management
+mentoring
+public speaking
+technical writing
+documentation
+requirements analysis
+system design
+software architecture
+design patterns
+tdd
+test driven development
+bdd
+ddd
+domain driven design
+cicd
+devops
+mlops
+data governance
+data modeling
+data warehousing
+data visualization
+a/b testing
+statistical analysis
+regression
+classification
+clustering
+recommendation systems
+reinforcement learning
+generative ai
+prompt engineering
+fine tuning
+rag
+retrieval augmented generation
+llmops
+api design
+soap
+websocket
+oauth
+jwt
+authentication
+authorization
+cybersecurity
+penetration testing
+compliance
+gdpr
+hipaa
+soc2

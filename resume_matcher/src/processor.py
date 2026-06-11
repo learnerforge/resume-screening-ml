@@ -1,10 +1,10 @@
-# This is used to process the data came from extractor
-# Importing the dependencies
+from __future__ import annotations
+
 import spacy
 from pathlib import Path
+from typing import Union
 
-# load spacy model to npl, make it private to this file only
-_nlp = spacy.load("en_core_web_sm") # this helps to remove conflict
+_nlp = spacy.load("en_core_web_sm")
 
 # function to normalize the raw text in rusume for NLP
 def clean_text(text: str) -> str:
@@ -24,7 +24,7 @@ def clean_text(text: str) -> str:
     return " ".join(tokens)
 
 # function to load skills from skills.txt
-def load_skills(skill_file: str | Path) -> set[str]:
+def load_skills(skill_file: Union[str, Path]) -> set[str]:
     skill_file = Path(skill_file)
 
     if not skill_file.exists():
@@ -38,21 +38,24 @@ def load_skills(skill_file: str | Path) -> set[str]:
                 }
         return skills
 
-# function to find skills appeared in resume
-# map original skills to normal_skills
-def extract_skills(text: str, skill_file: str | Path) -> set[str]:
+def extract_skills(text: str, skill_file: Union[str, Path]) -> set[str]:
     cleaned_text = clean_text(text)
+    word_set = set(cleaned_text.split())
+
     skills = load_skills(skill_file)
 
-    normalized_skills_map = {
-            skill: clean_text(skill)
-            for skill in skills
-            }
+    matched_skills = set()
+    for skill in skills:
+        normal_skill = clean_text(skill)
+        if not normal_skill:
+            continue
 
-    matched_skills = {
-            skill
-            for skill, normal_skill in normalized_skills_map.items()
-            if normal_skill and normal_skill in cleaned_text
-            }
+        normal_words = normal_skill.split()
+        if len(normal_words) == 1:
+            if normal_skill in word_set:
+                matched_skills.add(skill)
+        else:
+            if normal_skill in cleaned_text:
+                matched_skills.add(skill)
 
     return matched_skills
