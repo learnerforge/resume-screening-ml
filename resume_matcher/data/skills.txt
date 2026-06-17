@@ -1,3 +1,4 @@
+# Programming Languages
 python
 java
 javascript
@@ -21,29 +22,32 @@ assembly
 shell
 bash
 powershell
-sql
-nosql
+r
+
+# Web Technologies
 html
 css
 sass
 less
 react
-react.js
-reactjs
 angular
-angular.js
 vue
-vue.js
-vuejs
 svelte
-next.js
-nextjs
-nuxt.js
-nuxtjs
+jquery
+bootstrap
+tailwind
+redux
+graphql
+rest
+restful
+soap
+websocket
+grpc
+
+# Backend Frameworks
 node.js
 nodejs
 express
-express.js
 django
 flask
 fastapi
@@ -55,22 +59,38 @@ rails
 ruby on rails
 laravel
 symfony
-jquery
-bootstrap
-tailwind
-tailwind css
-redux
-graphql
-rest
-rest api
-grpc
-docker
-kubernetes
+
+# Databases
+sql
+mysql
+postgresql
+postgres
+mongodb
+redis
+elasticsearch
+cassandra
+mariadb
+sqlite
+oracle
+sql server
+dynamodb
+couchbase
+neo4j
+influxdb
+firebase
+bigquery
+snowflake
+redshift
+cosmosdb
+
+# Cloud & DevOps
 aws
 amazon web services
 azure
 google cloud
 gcp
+docker
+kubernetes
 terraform
 ansible
 jenkins
@@ -85,28 +105,12 @@ apache
 linux
 unix
 windows server
-mysql
-postgresql
-postgres
-mongodb
-redis
-elasticsearch
-cassandra
-mariadb
-sqlite
-oracle
-sql server
-dynamodb
-firebase
-bigquery
-snowflake
-airflow
-kafka
-spark
-apache spark
-hadoop
-hive
-hbase
+heroku
+vercel
+netlify
+cloudflare
+
+# Data Science & ML
 pytorch
 tensorflow
 keras
@@ -133,19 +137,46 @@ data analysis
 data engineering
 data pipeline
 etl
+airflow
+kafka
+spark
+apache spark
+hadoop
+hive
+hbase
+statistics
+regression
+classification
+clustering
+recommendation systems
+reinforcement learning
+generative ai
+prompt engineering
+fine tuning
+rag
+retrieval augmented generation
+llmops
+mlops
+a/b testing
+statistical analysis
+
+# BI & Visualization
 tableau
 power bi
 looker
 qlik
 excel
 google sheets
-saas
-paas
-iaas
+data visualization
+data modeling
+data warehousing
+data governance
+
+# Software Engineering
 microservices
 soa
-restful
 api
+api design
 sdlc
 agile
 scrum
@@ -155,6 +186,22 @@ confluence
 postman
 swagger
 openapi
+system design
+software architecture
+design patterns
+tdd
+test driven development
+bdd
+ddd
+domain driven design
+cicd
+devops
+oauth
+jwt
+authentication
+authorization
+
+# Testing
 pytest
 junit
 selenium
@@ -162,15 +209,22 @@ cypress
 jest
 mocha
 chai
-webpack
-babel
-eslint
-prettier
+unittest
+
+# Tools & IDEs
 vscode
 intellij
 pycharm
 eclipse
 vim
+webpack
+babel
+eslint
+prettier
+postman
+git
+
+# Soft Skills
 problem solving
 critical thinking
 communication
@@ -183,44 +237,13 @@ public speaking
 technical writing
 documentation
 requirements analysis
-system design
-software architecture
-design patterns
-tdd
-test driven development
-bdd
-ddd
-domain driven design
-cicd
-devops
-mlops
-data governance
-data modeling
-data warehousing
-data visualization
-a/b testing
-statistical analysis
-regression
-classification
-clustering
-recommendation systems
-reinforcement learning
-generative ai
-prompt engineering
-fine tuning
-rag
-retrieval augmented generation
-llmops
-api design
-soap
-websocket
-oauth
-jwt
-authentication
-authorization
+
+# Security & Compliance
 cybersecurity
 penetration testing
 compliance
 gdpr
 hipaa
 soc2
+encryption
+network security

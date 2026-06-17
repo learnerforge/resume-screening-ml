@@ -1,6 +1,16 @@
 __pycache__/
 *.pyc
 venv/
+.venv/
 .env
 temp_data/
-.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

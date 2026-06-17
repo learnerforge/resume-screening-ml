@@ -1,51 +1,52 @@
-# This is used to extract the text from pdf and docx files(Since, resumes are
-                                                           # often in .pdf or
-                                                           # .docx files)
+from __future__ import annotations
 
-# Importing necessary dependencies
+import logging
+from pathlib import Path
+from typing import Union
+
 import pdfplumber
 from docx import Document
-from pathlib import Path
 
-# Function to extract text from pdf file
-def extract_text_from_pdf(pdf_file):
-    text = []
+logger = logging.getLogger(__name__)
 
+
+def extract_text_from_pdf(pdf_file: Union[str, Path]) -> str:
+    text: list[str] = []
     try:
         with pdfplumber.open(pdf_file) as pdf:
-            for pages in pdf.pages:
-                pages_text = pages.extract_text()
-                if pages_text:
-                    text.append(pages_text)
-
-    except Exception as e:
-        raise RuntimeError(f"Error reading PDF File: {e}")
+            for page in pdf.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    text.append(page_text)
+    except Exception as exc:
+        logger.exception("Failed to extract text from PDF: %s", pdf_file)
+        raise RuntimeError(f"Error reading PDF file: {exc}") from exc
 
     return " ".join(text)
 
-# Function used to extract text from docx files
-def extract_text_from_docx(docx_file):
+
+def extract_text_from_docx(docx_file: Union[str, Path]) -> str:
     try:
-        docx = Document(docx_file)
-        text = [para.text for para in docx.paragraphs if para.text.strip()]
-
-    except Exception as e:
-        raise RuntimeError(f"Error reading DOCX file: {e}")
+        doc = Document(docx_file)
+        text = [para.text for para in doc.paragraphs if para.text.strip()]
+    except Exception as exc:
+        logger.exception("Failed to extract text from DOCX: %s", docx_file)
+        raise RuntimeError(f"Error reading DOCX file: {exc}") from exc
 
     return " ".join(text)
 
-#  Function to extract text from uploaded resume 
-def extract_resume_text(file_path):
-    file_path = Path(file_path)
 
-    if not file_path.exists():
-        raise FileNotFoundError(f"File not found: {file_path}")
+def extract_resume_text(file_path: Union[str, Path]) -> str:
+    path = Path(file_path)
+    if not path.exists():
+        raise FileNotFoundError(f"File not found: {path}")
 
-    if file_path.suffix.lower() == ".pdf":
-        return extract_text_from_pdf(file_path)
-
-    elif file_path.suffix.lower() == ".docx":
-        return extract_text_from_docx(file_path)
-
+    suffix = path.suffix.lower()
+    if suffix == ".pdf":
+        logger.info("Extracting text from PDF: %s", path)
+        return extract_text_from_pdf(path)
+    elif suffix == ".docx":
+        logger.info("Extracting text from DOCX: %s", path)
+        return extract_text_from_docx(path)
     else:
-        raise ValueError("Upload only PDF or DOCX files")
+        raise ValueError(f"Unsupported file format: {suffix}. Only PDF and DOCX are supported.")
