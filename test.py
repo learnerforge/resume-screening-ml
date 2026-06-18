@@ -1,11 +1,11 @@
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent / "resume_matcher"))
 
-from resume_matcher.src.extractor import extract_resume_text
-from resume_matcher.src.processor import clean_text, extract_skills
-from resume_matcher.src.matcher import match_resume_to_job
+from src.extractor import extract_resume_text
+from src.processor import clean_text, extract_skills
+from src.matcher import match_resume_to_job
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 SKILL_FILE = PROJECT_ROOT / "resume_matcher" / "data" / "skills.txt"

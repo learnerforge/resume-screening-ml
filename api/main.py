@@ -9,12 +9,12 @@ from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.responses import JSONResponse
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "resume_matcher"))
 
-from resume_matcher.config import settings
-from resume_matcher.src.extractor import extract_resume_text
-from resume_matcher.src.matcher import match_resume_to_job
-from resume_matcher.src.processor import extract_skills, load_skills
+from config import settings
+from src.extractor import extract_resume_text
+from src.matcher import match_resume_to_job
+from src.processor import extract_skills, load_skills
 
 logger = logging.getLogger(__name__)
 
