@@ -41,8 +41,9 @@ def test_matcher():
         resume_text,
         job_text,
         SKILL_FILE,
-        text_weight=0.7,
-        skill_weight=0.3,
+        text_weight=0.5,
+        skill_weight=0.4,
+        experience_weight=0.1,
     )
 
     print("\n[OK] match_resume_to_job result:")

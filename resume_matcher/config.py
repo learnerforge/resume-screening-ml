@@ -14,9 +14,9 @@ class Settings:
     sentence_transformer_model: str = "all-MiniLM-L6-v2"
     use_semantic: bool = False
 
-    default_text_weight: float = 0.7
-    default_skill_weight: float = 0.3
-    default_experience_weight: float = 0.0
+    default_text_weight: float = 0.5
+    default_skill_weight: float = 0.4
+    default_experience_weight: float = 0.1
 
     max_upload_size_mb: int = 10
 

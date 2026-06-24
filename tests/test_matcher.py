@@ -89,3 +89,11 @@ def test_match_resume_to_job_zero_weights(sample_resume_text: str, sample_job_te
     )
     # Should fall back to default weights and still produce a valid score
     assert 0 <= result["final_score"] <= 100
+
+
+def test_compute_text_similarity_bigram_matching():
+    """Bigrams should capture multi-word technical terms better."""
+    resume = "experienced in machine learning and deep learning"
+    job = "need expertise in machine learning and deep learning"
+    score = compute_text_similarity(resume, job)
+    assert score > 50.0

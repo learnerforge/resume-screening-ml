@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Matcher</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar">
+    <div class="sidebar-header">Resume Matcher</div>
+    <nav id="nav">
+      <a href="#dashboard" class="nav-item active" data-page="dashboard">
+        <span class="nav-icon">&#9632;</span> Dashboard
+      </a>
+      <a href="#matcher" class="nav-item" data-page="matcher">
+        <span class="nav-icon">&#9654;</span> Resume Matcher
+      </a>
+      <a href="#compare" class="nav-item" data-page="compare">
+        <span class="nav-icon">&#8646;</span> Compare
+      </a>
+      <a href="#analytics" class="nav-item" data-page="analytics">
+        <span class="nav-icon">&#9878;</span> Analytics
+      </a>
+      <a href="#history" class="nav-item" data-page="history">
+        <span class="nav-icon">&#128214;</span> History
+      </a>
+      <a href="#settings" class="nav-item" data-page="settings">
+        <span class="nav-icon">&#9881;</span> Settings
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div id="theme-toggle" class="theme-toggle" title="Toggle theme">&#9681;</div>
+    </div>
+  </aside>
+  <main id="main">
+    <div id="page-dashboard" class="page active"></div>
+    <div id="page-matcher" class="page"></div>
+    <div id="page-compare" class="page"></div>
+    <div id="page-analytics" class="page"></div>
+    <div id="page-history" class="page"></div>
+    <div id="page-settings" class="page"></div>
+  </main>
+</div>
+
+<div id="toast-container"></div>
+<script src="assets/app.js"></script>
+</body>
+</html>

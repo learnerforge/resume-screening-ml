@@ -15,6 +15,9 @@ logger = logging.getLogger(__name__)
 
 _sentence_model: Any = None
 
+_TFIDF_NGRAM_RANGE = (1, 2)
+_TFIDF_SUBLINEAR_TF = True
+
 
 def _get_sentence_model():
     global _sentence_model
@@ -26,6 +29,13 @@ def _get_sentence_model():
     return _sentence_model
 
 
+def _make_vectorizer() -> TfidfVectorizer:
+    return TfidfVectorizer(
+        ngram_range=_TFIDF_NGRAM_RANGE,
+        sublinear_tf=_TFIDF_SUBLINEAR_TF,
+    )
+
+
 def compute_text_similarity(resume_text: str, job_text: str) -> float:
     if settings.use_semantic:
         return compute_semantic_similarity(resume_text, job_text)
@@ -33,7 +43,7 @@ def compute_text_similarity(resume_text: str, job_text: str) -> float:
     resume_clean = clean_text(resume_text)
     job_clean = clean_text(job_text)
 
-    vectorizer = TfidfVectorizer()
+    vectorizer = _make_vectorizer()
     tfidf_matrix = vectorizer.fit_transform([resume_clean, job_clean])
     similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
     return float(round(similarity * 100, 2))
@@ -53,7 +63,7 @@ def compute_text_similarity_batch(resume_texts: list[str], job_text: str) -> lis
     cleaned_job = clean_text(job_text)
 
     all_texts = cleaned_resumes + [cleaned_job]
-    vectorizer = TfidfVectorizer()
+    vectorizer = _make_vectorizer()
     tfidf_matrix = vectorizer.fit_transform(all_texts)
 
     job_vec = tfidf_matrix[-1:]
@@ -118,9 +128,9 @@ def match_resume_to_job(
     resume_text: str,
     job_text: str,
     skill_file: str,
-    text_weight: float = 0.7,
-    skill_weight: float = 0.3,
-    experience_weight: float = 0.0,
+    text_weight: float = 0.5,
+    skill_weight: float = 0.4,
+    experience_weight: float = 0.1,
 ) -> dict[str, Any]:
     text_score = compute_text_similarity(resume_text, job_text)
     skill_result = compute_skill_match(resume_text, job_text, skill_file)
@@ -133,7 +143,7 @@ def match_resume_to_job(
         s_w = skill_weight / total_weight
         e_w = experience_weight / total_weight
     else:
-        t_w, s_w, e_w = 0.7, 0.3, 0.0
+        t_w, s_w, e_w = 0.5, 0.4, 0.1
 
     final_score = t_w * text_score + s_w * skill_result["skill_score"] + e_w * exp_score
 

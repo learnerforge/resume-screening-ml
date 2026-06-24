@@ -1,11 +1,13 @@
 # Programming Languages
 python
 java
-javascript
-typescript
+javascript|js
+typescript|ts
+c
 c++
+c#|csharp
+golang|go
 rust
-golang
 swift
 kotlin
 ruby
@@ -23,48 +25,226 @@ shell
 bash
 powershell
 r
+groovy
+cobol
+fortran
+pascal
+delphi
+apl
+julia
+zig
+nim
+racket
+common lisp
+erlang
+f#|fsharp
+objective c|objective-c
+solidity
+vyper
+sql
+pl/sql
+t-sql
+vba
+awk
+sed
+tcl
+prolog
+smalltalk
+ada
+labview
 
-# Web Technologies
+# Frontend & Web Technologies
 html
 css
-sass
+sass|scss
 less
-react
+stylus
+react|react.js|reactjs
 angular
-vue
+vue|vue.js|vuejs
 svelte
 jquery
 bootstrap
-tailwind
-redux
+tailwind|tailwind css
+bulma
+foundation
+materialize
+redux|redux.js
+mobx
+zustand
+recoil
 graphql
+apollo
+relay
 rest
-restful
+restful|rest api
 soap
 websocket
 grpc
+webpack
+vite
+parcel
+rollup
+esbuild
+gulp
+bower
+babel
+eslint
+prettier
+next.js|nextjs
+nuxt|nuxt.js|nuxtjs
+gatsby
+remix
+astro
+sapper
+nx
+nx monorepo
+turbo
+lerna
+storybook
+jest
+mocha
+chai
+sinon
+cypress
+playwright
+puppeteer
+karma
+jasmine
+enzyme
+testing library
+react testing library
+vitest
+electron
+tauri
+web components
+shadow dom
+progressive web app|pwa
+single page application|spa
+server side rendering|ssr
+static site generation|ssg
+webassembly|wasm
+three.js|threejs
+d3.js|d3js
+chart.js|chartjs
+rxjs
+immer
+reselect
+react native
+expo
+webgl
+canvas
+svg
+ajax
+json
+xml
+yaml
+markdown
+typescript
+flash
+flexbox
+css grid
+
+# Mobile Development
+android
+ios
+swiftui
+uikit
+react native
+flutter
+xamarin
+cordova
+ionic
+native script
+kotlin multiplatform
+jetpack compose
+material design
+mobile app development
+ios development
+android development
+app store deployment
+google play deployment
+testflight
+firebase
+push notifications
+location services
+camera api
+sensors
+bluetooth
+nfc
+augmented reality|ar
+arkit
+arcore
+core data
+room database
+realm
+sqlite
+mobile ci/cd
+fastlane
+appcenter
 
 # Backend Frameworks
-node.js
-nodejs
-express
+node.js|nodejs
+express|express.js
 django
 flask
 fastapi
 spring
 spring boot
-asp.net
-dotnet
-rails
-ruby on rails
+asp.net|asp dotnet
+asp.net core
+dotnet|.net
+dotnet core
+rails|ruby on rails
 laravel
 symfony
+gin
+echo
+fiber
+koa
+hapi
+sails
+meteor
+nestjs
+loopback
+adonis
+phoenix
+play framework
+dropwizard
+micronaut
+quarkus
+vert.x
+actix
+rocket
+axum
+tornado
+aiohttp
+sanic
+starlette
+bottle
+pyramid
+cakephp
+yii
+codeigniter
+zend
+lumen
+slim
+fastify
+restify
+feathers
+derby
+socket.io
+strapi
+keystone
+vendure
+medusa
+directus
+supabase
+graphql yoga
 
 # Databases
-sql
 mysql
-postgresql
-postgres
+postgresql|postgres
 mongodb
 redis
 elasticsearch
@@ -72,36 +252,139 @@ cassandra
 mariadb
 sqlite
 oracle
-sql server
+sql server|mssql
 dynamodb
 couchbase
+couchdb
 neo4j
 influxdb
+timescaledb
+clickhouse
+cockroachdb
+crate
 firebase
+firestore
 bigquery
 snowflake
 redshift
 cosmosdb
+hbase
+hive
+derby
+hsqldb
+ibm db2
+sap hana
+memsql|singlestore
+arangodb
+orientdb
+ravendb
+rethinkdb
+fauna
+planetscale
+neon
+supabase
+vercel postgres
+cloud sql
+aurora
+rds
+datastore
+spanner
+dgraph
+teradata
+vertica
+greenplum
+pinot
+druid
+kudu
+presto|trino
+databricks
+delta lake
+database design
+database administration|dba
+query optimization
+indexing
+normalization
+sharding
+replication
+data migration
+etl
+olap
+oltp
+acid
+nosql
+acid compliance
+orm
+entity framework
+hibernate
+typeorm
+prisma
+sequelize
+drizzle
+sqlalchemy
+mongoose
+django orm
+jooq
+flyway
+liquibase
+mongodb aggregation
 
 # Cloud & DevOps
-aws
-amazon web services
-azure
-google cloud
-gcp
+aws|amazon web services
+azure|microsoft azure
+google cloud|gcp|google cloud platform
+oracle cloud|oci
+ibm cloud
+digital ocean
+linode
+vultr
 docker
-kubernetes
+kubernetes|k8s
 terraform
+pulumi
 ansible
+chef
+puppet
+saltstack
 jenkins
-ci
-cd
+github actions
+gitlab ci
+circleci
+travis ci
+bitbucket pipelines
+argocd
+flux
+helm
+istio
+linkerd
+consul
+vault
+prometheus
+grafana
+datadog
+new relic
+dynatrace
+splunk
+elk stack|elastic stack
+elasticsearch
+logstash
+kibana
+loki
+tempo
+jaeger
+opentelemetry
+cloudwatch
+azure monitor
+stackdriver
 git
 github
 gitlab
 bitbucket
 nginx
 apache
+caddy
+traefik
+haproxy
+envoy
 linux
 unix
 windows server
@@ -109,78 +392,256 @@ heroku
 vercel
 netlify
 cloudflare
+aws lambda
+azure functions
+google cloud functions
+cloud run
+fargate
+ecs
+eks
+aks
+gke
+ec2
+s3
+cloudfront
+route53
+vpc
+iam
+cloud formation
+cdk
+serverless
+serverless framework
+sam
+openstack
+vmware
+proxmox
+vagrant
+packer
+ci/cd
+devops
+devsecops
+gitops
+infrastructure as code|iac
+configuration management
+containerization
+orchestration
+microservices
+monitoring
+observability
+alerting
+incident response
+site reliability engineering|sre
+sla
+slo
+sli
+load balancing
+auto scaling
+disaster recovery
+blue green deployment
+canary deployment
+rolling update
+zero downtime deployment
 
-# Data Science & ML
+# Data Science & Machine Learning
 pytorch
 tensorflow
 keras
-scikit-learn
+scikit-learn|sklearn
 pandas
 numpy
 scipy
 matplotlib
 seaborn
 plotly
-opencv
+opencv|computer vision
 nltk
-transformers
+spacy|spacy nlp
+transformers|hugging face transformers
 hugging face
 langchain
-llm
+llama index
+llm|large language model
 machine learning
 deep learning
-nlp
+nlp|natural language processing
 natural language processing
 computer vision
 data science
 data analysis
 data engineering
 data pipeline
-etl
+data wrangling
+data cleaning
+feature engineering
+feature selection
+dimensionality reduction
 airflow
 kafka
-spark
+spark|apache spark
 apache spark
 hadoop
+apache hadoop
 hive
 hbase
 statistics
 regression
+linear regression
+logistic regression
 classification
+decision tree
+random forest
+svm|support vector machine
+k nearest neighbors|knn
+naive bayes
 clustering
-recommendation systems
+k means
+hierarchical clustering
+dbscan
+recommendation systems|recommender systems
+collaborative filtering
+content based filtering
 reinforcement learning
-generative ai
+generative ai|gen ai
 prompt engineering
 fine tuning
-rag
+rag|retrieval augmented generation
 retrieval augmented generation
 llmops
 mlops
 a/b testing
 statistical analysis
+hypothesis testing
+bayesian statistics
+monte carlo
+time series analysis
+forecasting
+anomaly detection
+xgboost
+lightgbm
+catboost
+gradient boosting
+adaboost
+bagging
+ensemble methods
+neural networks
+cnn|convolutional neural network
+rnn|recurrent neural network
+lstm|long short term memory
+transformer|transformer model
+attention mechanism
+gans|generative adversarial network
+autoencoder
+variational autoencoder
+word2vec
+glove
+fasttext
+bert
+gpt
+t5
+llama
+mistral
+claude
+gemini
+tokenization
+embedding
+vector database
+chroma
+pinecone
+weaviate
+qdrant
+milvus
+mlflow
+kubeflow
+weights and biases|wandb
+streamlit
+gradio
+jupyter
+jupyter notebook
+colab
+databricks
+sagemaker
+vertex ai
+azure machine learning
+data mining
+web scraping
+beautiful soup
+selenium web scraping
+market basket analysis
+principal component analysis|pca
+t-sne
+umap
+cross validation
+hyperparameter tuning
+grid search
+random search
+structured data
+unstructured data
+data quality
+data governance
+data validation
+great expectations
+dbt
+dvc
+feature store
+model serving
+model monitoring
+drift detection
+online learning
+transfer learning
+few shot learning
+zero shot learning
+synthetic data
 
 # BI & Visualization
 tableau
 power bi
 looker
-qlik
+qlik|qlikview|qliksense
 excel
 google sheets
+airtable
+notion
 data visualization
 data modeling
 data warehousing
 data governance
+sap bo|business objects
+microstrategy
+metabase
+superset
+redash
+tibco spotfire
+sas
+cognos
+domo
+sigma computing
+thoughtspot
+salesforce einstein analytics
+tableau prep
+alteryx
+knime
+rapidminer
+pentaho
+talend
+ssis
+olap cubes
+star schema
+snowflake schema
+dimensional modeling
+data mart
+lakehouse
 
 # Software Engineering
 microservices
-soa
-api
+soa|service oriented architecture
+api|api design
 api design
-sdlc
+sdlc|software development life cycle
 agile
 scrum
 kanban
+lean
+xp|extreme programming
 jira
 confluence
 postman
@@ -189,61 +650,714 @@ openapi
 system design
 software architecture
 design patterns
-tdd
+solid principles
+clean code
+refactoring
+unit testing
+integration testing
+end to end testing|e2e testing
+tdd|test driven development
 test driven development
-bdd
-ddd
+bdd|behavior driven development
+ddd|domain driven design
 domain driven design
-cicd
+event driven architecture
+cqrs|command query responsibility segregation
+event sourcing
+cicd|continuous integration continuous deployment
 devops
 oauth
-jwt
+jwt|json web token
+oauth2
+openid connect|oidc
+saml
 authentication
 authorization
+rbac|role based access control
+abac|attribute based access control
+api gateway
+service mesh
+message queue
+rabbitmq
+nats
+amazon sqs
+azure service bus
+pub sub
+event bus
+saga pattern
+circuit breaker
+bulkhead
+retry pattern
+idempotency
+version control
+code review
+pair programming
+continuous integration
+continuous delivery
+continuous deployment
+feature flags
+semantic versioning
+change management
+incident management
+on call
+runbook
+postmortem
+tech debt
+legacy migration
+monolith
+strangler fig
+backwards compatibility
+api versioning
+restful api design
+rate limiting
+hateoas
+content negotiation
+caching
+cdn
+http
+tcp/ip
+dns
+websocket
+grpc design
+protobuf|protocol buffers
+contract testing
+consumer driven contracts
+pact
+chaos engineering
+performance testing
+load testing
+stress testing
+capacity planning
+benchmarking
+software development
+object oriented programming|oop
+functional programming
+procedural programming
+metaprogramming
+concurrent programming
+parallel programming
+asynchronous programming|async
+reactive programming
+event loop
+multithreading
+multiprocessing
+data structures
+algorithms
+big o|complexity analysis
+recursion
+dynamic programming
+memory management
+garbage collection
+dependency injection
+inversion of control
+ioc container
+aspect oriented programming|aop
+logging
+structured logging
+exception handling
+error handling
+input validation
+defensive programming
 
 # Testing
 pytest
 junit
 selenium
 cypress
-jest
+playwright
+robot framework
+cucumber
+gherkin
+specflow
+behave
+lettuce
+gauge
+testng
 mocha
 chai
+sinon
+jasmine
+karma
+protractor
+webdriverio
+appium
+detox
+espresso
+xcuitest
+postman tests
+newman
+soapui
+gatling
+jmeter
+k6|grafana k6
+locust
+artillery
+nunit
+xunit
+mstest
 unittest
+doctest
+mock
+stub
+fake
+faker
+factory boy
+model mother
+fixtures
+snapshot testing
+visual regression testing
+percy
+applitools
+sauce labs
+browserstack
+testing pyramid
+shift left testing
+regression testing
+smoke testing
+acceptance testing
+usability testing
+accessibility testing|a11y
+security testing
+penetration testing
+performance testing
+test automation
+test coverage
+code coverage
+mutation testing
+property based testing
+hypothesis
+fuzz testing
+integration testing
+contract testing
+end to end testing
+component testing
+unit testing
 
 # Tools & IDEs
-vscode
-intellij
+vscode|visual studio code
+visual studio
+intellij|intellij idea
 pycharm
 eclipse
-vim
-webpack
-babel
-eslint
-prettier
-postman
+vim|neovim
+emacs
+sublime text
+atom
+xcode
+android studio
+webstorm
+phpstorm
+rubymine
+goland
+clion
+datagrip
+rider
+netbeans
+jupyter lab
 git
+github desktop
+sourcetree
+fork
+kdiff3
+meld
+beyond compare
+notepad++
+vim
+nano
+nvr|neovim remote
+terminal
+iterm2
+wsl|windows subsystem for linux
+mingw
+cygwin
+homebrew
+apt
+yum
+dnf
+pacman
+chocolatey
+scoop
+winget
+poetry
+pip
+pipenv
+conda
+venv
+virtualenv
+pyenv
+nvm
+npx
+yarn
+pnpm
+npm
+bun
+make
+cmake
+gradle
+maven
+ant
+sbt
+bazel
+ninja
+meson
+gcc
+g++
+clang
+rustc
+nuget
+composer
+bundler
+cargo
+go modules
+hex
+mix
+rebar3
+linux command line
+windows command line
+powershell
+zsh
+fish
+kubectl
+docker compose
+helm
+istioctl
+pulumi cli
+aws cli
+azure cli
+gcloud cli
+openssl
+curl
+wget
+telnet
+nslookup
+dig
+ping
+traceroute
+netstat
+tcpdump
+wireshark
+mitmproxy
+fiddler
+charles proxy
+proxyman
 
 # Soft Skills
 problem solving
 critical thinking
 communication
+verbal communication
+written communication
 teamwork
+collaboration
 leadership
 project management
 time management
 mentoring
+coaching
 public speaking
+presentation skills
 technical writing
 documentation
 requirements analysis
+business analysis
+stakeholder management
+negotiation
+conflict resolution
+decision making
+adaptability
+flexibility
+creativity
+innovation
+emotional intelligence
+empathy
+active listening
+feedback
+self motivation
+ownership
+accountability
+reliability
+integrity
+professionalism
+cross functional collaboration
+remote collaboration
+agile mindset
+continuous learning
+growth mindset
+resilience
+stress management
+prioritization
+strategic thinking
+analytical thinking
+attention to detail
+client management
+vendor management
+budgeting
+resource allocation
+risk management
+change management
+meeting facilitation
+workshop facilitation
+root cause analysis
+process improvement
+six sigma
+lean methodology
 
 # Security & Compliance
 cybersecurity
-penetration testing
+penetration testing|pentesting
 compliance
 gdpr
 hipaa
-soc2
+soc2|soc 2
+soc1|soc 1
+iso 27001
+pci dss
+pci compliance
 encryption
+aes
+rsa
+tls
+ssl
+https
+certificate management
+public key infrastructure|pki
 network security
+application security|appsec
+cloud security
+zero trust
+vulnerability assessment
+vulnerability management
+incident response
+security operations|soc
+threat intelligence
+security architecture
+secure coding
+code security review
+authentication
+authorization
+identity management|idm
+identity and access management|iam
+privileged access management|pam
+multi factor authentication|mfa
+single sign on|sso
+directory services
+ldap
+active directory
+okta
+auth0
+keycloak
+secret management
+hashiCorp vault
+aws secrets manager
+azure key vault
+gcp secret manager
+snyk
+sonarqube
+fortify
+veracode
+checkmarx
+burp suite
+owasp
+owasp top 10
+sql injection
+xss|cross site scripting
+csrf
+ssrf
+security headers
+cors
+content security policy|csp
+cryptography
+public key cryptography
+symmetric encryption
+asymmetric encryption
+hash function
+digital signature
+certificate authority|ca
+key management
+hardware security module|hsm
+tokenization
+data masking
+data anonymization
+data classification
+data loss prevention|dlp
+dlp
+bastion host
+vpn
+firewall
+waf|web application firewall
+ids|intrusion detection system
+ips|intrusion prevention system
+siem
+soar
+edr|endpoint detection and response
+xdr|extended detection and response
+sandboxing
+container security
+kubernetes security
+cloud security posture management|cspm
+cloud workload protection|cwp
+software bill of materials|sbom
+supply chain security
+devsecops
+security as code
+policy as code
+compliance as code
+
+# Game Development
+unity
+unreal engine|unreal
+godot
+game design
+game development
+game programming
+game mechanics
+level design
+character design
+3d modeling
+2d art
+animation
+rigging
+shader programming
+glsl|opengl shader
+hlsl|directx shader
+directx
+vulkan
+opengl
+blender
+maya
+3ds max
+zbrush
+substance painter
+substance designer
+photoshop
+illustrator
+spine
+dragonbones
+physics engine
+collision detection
+pathfinding
+game ai
+behavior tree
+finite state machine
+netcode
+multiplayer
+real time multiplayer
+matchmaking
+game analytics
+monetization
+iap|in app purchase
+ad mediation
+game optimization
+procedural generation
+lighting
+texturing
+sound design
+voice acting
+game audio
+fmod
+wwise
+steam
+epic games store
+app store
+google play
+unity3d
+unreal blueprint
+c# unity
+c++ unreal
+
+# Embedded Systems & IoT
+arduino
+raspberry pi
+esp32
+esp8266
+microcontroller
+fpga
+verilog
+vhdl
+embedded c
+embedded c++
+rtos|real time operating system
+freeRTOS
+zephyr
+mbed
+arm
+stm32
+avr
+pic
+msp430
+iot|internet of things
+mqtt
+coap
+lora
+lorawan
+zigbee
+ble|bluetooth low energy
+bluetooth
+wifi
+ethernet
+can bus
+modbus
+i2c
+spi
+uart
+sensor fusion
+firmware
+driver development
+digital signal processing|dsp
+keil
+iar
+microchip studio
+altium designer
+eagle
+kicad
+pcb design
+schematic capture
+hardware design
+electronics
+circuit design
+oscilloscope
+logic analyzer
+soldering
+prototyping
+hardware testing
+hardware debugging
+jtag
+swd
+
+# Operating Systems
+linux
+unix
+ubuntu
+debian
+centos
+red hat enterprise linux|rhel
+fedora
+arch linux
+alpine linux
+opensuse
+windows
+windows server
+macos
+ios
+android
+chrome os
+freebsd
+openbsd
+netbsd
+solaris
+aix
+hp-ux
+z/os
+kernel programming
+device drivers
+system programming
+file systems
+process management
+memory management
+scheduling
+interrupt handling
+system calls
+posix
+system administration
+os customization
+kernel compilation
+package management
+service management
+init system
+systemd
+upstart
+sysv init
+boot process
+grub
+uefi
+bios
+virtual memory
+paging
+segmentation
+
+# Networking
+tcp
+udp
+ip|internet protocol
+dns
+dhcp
+http
+https
+ssl/tls
+ftp
+smtp
+imap
+pop3
+snmp
+ssh
+telnet
+ipsec
+bgp
+ospf
+rip
+eigrp
+vlan
+vxlan
+mpls
+nat
+pat
+arp
+icmp
+igmp
+multicast
+anycast
+ethernet
+wifi
+5g
+4g|lte
+subnetting
+routing
+switching
+firewall
+load balancer
+proxy
+reverse proxy
+content delivery network|cdn
+wan|wide area network
+lan|local area network
+sdwan
+sdn|software defined networking
+nfv|network function virtualization
+network automation
+ansible networking
+python networking
+netmiko
+napalm
+yang
+netconf
+restconf
+network monitoring
+netflow
+sflow
+ipfix
+packet analysis
+packet capture
+wireshark
+tcpdump
+network segmentation
+dmz
+nat gateway
+vpn
+ipsec vpn
+openvpn
+wireguard
+site to site vpn
+remote access vpn
+vpc
+peering
+transit gateway
+direct connect
+express route
+cloud networking
+load balancer as a service
+ddos mitigation
+web application firewall
+dns security
+email security
+spam filter
+network access control|nac

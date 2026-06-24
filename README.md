@@ -3,7 +3,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-NLP-green)
-![Streamlit](https://img.shields.io/badge/Streamlit-Deployed-red)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
 ![spaCy](https://img.shields.io/badge/spaCy-NLP-orange)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
@@ -16,7 +16,7 @@ flowchart TD
     User["User / Recruiter"] --> Upload["Upload Resume (PDF/DOCX)"]
     User --> Paste["Paste Job Description"]
 
-    Upload --> App["Streamlit UI (app.py)"]
+    Upload --> App["FastAPI + HTML/CSS/JS Frontend"]
     Paste --> App
 
     App --> Extractor["Extractor (extractor.py)\nExtracts raw text from PDF/DOCX"]
@@ -89,7 +89,7 @@ This system automates the first screening layer by:
 
 - Resume / Job Description similarity scoring
 - Supports PDF and DOCX resumes
-- Fully deployed Streamlit web application
+- FastAPI backend with HTML/CSS/JS frontend
 - Dynamic TF-IDF vectorization at runtime
 - Skill extraction using a curated dataset of 220+ skills
 - Weighted scoring (text similarity + skill match)
@@ -141,9 +141,17 @@ resume-screening-ml/
 |
 +-- requirements.txt             Project dependencies
 |
++-- api/
+|   +-- main.py                 FastAPI server (API + static file serving)
+|
++-- frontend/
+|   +-- index.html              Single-page application
+|   +-- assets/
+|       +-- style.css           Complete styling (light/dark theme)
+|       +-- app.js              Application logic (hash router, API client, charts)
+|
 +-- resume_matcher/
-|   +-- app.py                  Streamlit UI entry point
-|   | 
+|   +-- config.py               Settings
 |   +-- data/
 |   |   +-- skills.txt          Curated skills dataset (220+ skills)
 |   |   +-- __init__.py
@@ -165,12 +173,22 @@ resume-screening-ml/
 
 ## Module Breakdown
 
-### `app.py`
-- Streamlit-based frontend
-- Handles resume uploads and job description input
-- Displays ranked results with match scores, matched skills, and missing skills
+### `api/main.py`
+- FastAPI server serving both the REST API and the frontend static files
+- Endpoints: `/api/health`, `/api/match`, `/api/match-batch`, `/api/skills`, `/api/history`
+- CORS-free (same-origin serving)
 - Uses tempfile for secure temporary file handling
-- Isolates per-file errors so one failure does not crash the batch
+
+### `frontend/index.html`
+- Single-page application with hash-based routing (6 pages)
+- Plain HTML/CSS/JS — no build tools, no frameworks
+- Chart.js for data visualizations (radar, bar, pie, histogram)
+
+### `frontend/assets/app.js`
+- Hash router for page navigation
+- API client (fetch-based) to communicate with the backend
+- localStorage-based state persistence (history, settings, theme)
+- All page renderers: Dashboard, Matcher, Compare, Analytics, History, Settings
 
 ### `extractor.py`
 - Extracts raw text from PDF (pdfplumber) and DOCX (python-docx) resumes
@@ -208,8 +226,10 @@ pip install -r requirements.txt
 
 ### 3. Run the Application
 ```bash
-streamlit run resume_matcher/app.py
+uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 ```
+
+Open http://localhost:8000 in your browser.
 
 ---
 

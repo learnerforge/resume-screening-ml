@@ -13,9 +13,9 @@ COPY . .
 
 RUN python -m spacy download en_core_web_sm
 
-EXPOSE 8501
+EXPOSE 8000
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')"
+    CMD python -c "import urllib.request; print(urllib.request.urlopen('http://localhost:8000/api/health').read().decode())"
 
-CMD ["streamlit", "run", "resume_matcher/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]

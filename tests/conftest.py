@@ -45,9 +45,10 @@ sql
 pandas
 numpy
 machine learning
-power bi
+power bi|powerbi
 docker
 kubernetes
+javascript|js
 """
     path = tmp_path / "skills.txt"
     path.write_text(content.strip())
